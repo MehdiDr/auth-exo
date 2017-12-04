@@ -1,15 +1,15 @@
-DROP TABLE IF EXISTS users_todos;
+DROP TABLE IF EXISTS users_cards_lists;
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS todos;
-DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS cards;
+DROP TABLE IF EXISTS lists;
 
-CREATE TABLE categories
+CREATE TABLE lists
 (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255)
 );
 
-INSERT INTO categories
+INSERT INTO lists
   (name)
 VALUES
   ('Backlogs'),
@@ -17,23 +17,22 @@ VALUES
   ('En cours'),
   ('Fait');
 
-CREATE TABLE todos
+CREATE TABLE cards
 (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255),
-  category_id INTEGER REFERENCES categories
+  name VARCHAR(255)
 );
 
-INSERT INTO todos
-  (name, category_id)
+INSERT INTO cards
+  (name)
 VALUES
-  ('Connecter l''appli à la BDD', 3),
-  ('Faire une requête SQL', 4),
-  ('Faire une relation one to many', 3),
-  ('Faire une relation many to many', 2),
-  ('Faire une appli NodeJS', 2),
-  ('Créer des routes d''API', 2),
-  ('Créer la web pour interroger l''API', 1);
+  ('Connecter l''appli à la BDD'),
+  ('Faire une requête SQL'),
+  ('Faire une relation one to many'),
+  ('Faire une relation many to many'),
+  ('Faire une appli NodeJS'),
+  ('Créer des routes d''API'),
+  ('Créer la web pour interroger l''API');
 
 CREATE TABLE users
 (
@@ -54,27 +53,28 @@ VALUES
   ('Martin', 'Eon'),
   ('Julien', 'Grach');
 
-CREATE TABLE users_todos
+CREATE TABLE users_cards_lists
 (
   user_id integer REFERENCES users ON DELETE CASCADE,
-  todo_id integer REFERENCES todos ON DELETE CASCADE,
-  PRIMARY KEY (user_id, todo_id)
+  card_id integer REFERENCES cards ON DELETE CASCADE,
+  list_id integer REFERENCES lists ON DELETE SET NULL,
+  PRIMARY KEY (user_id, card_id)
 );
 
-INSERT INTO users_todos
-  (user_id, todo_id)
+INSERT INTO users_cards_lists
+  (user_id, card_id, list_id)
 VALUES
-  (1, 3),
-  (1, 1),
-  (1, 7),
-  (2, 1),
-  (3, 4),
-  (3, 5),
-  (5, 2),
-  (5, 3),
-  (6, 6),
-  (6, 4),
-  (7, 7),
-  (8, 2),
-  (8, 3),
-  (8, 6);
+  (1, 3, 1),
+  (1, 1, 1),
+  (1, 7, 1),
+  (2, 1, 1),
+  (3, 4, 1),
+  (3, 5, 1),
+  (5, 2, 1),
+  (5, 3, 1),
+  (6, 6, 1),
+  (6, 4, 1),
+  (7, 7, 1),
+  (8, 2, 1),
+  (8, 3, 1),
+  (8, 6, 1);
