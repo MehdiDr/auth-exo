@@ -1,10 +1,10 @@
 # postgresql 10 and JSON output
 
 ref. : 
-
-* https://www.postgresql.org/docs/10/static/functions-aggregate.html
-* https://www.periscopedata.com/blog/the-lazy-analysts-guide-to-postgres-json.html
 * https://stackoverflow.com/questions/35949485/how-to-aggregate-an-array-of-json-objects-with-postgres
+
+Interesting :
+* https://www.periscopedata.com/blog/the-lazy-analysts-guide-to-postgres-json.html
 
 To list missing indexes :
 
