@@ -5,10 +5,12 @@ services:
     db:
         image: postgres:10
         restart: always
+        ports:
+            - 5432:5432
         environment:
             POSTGRES_USER: dost
             POSTGRES_PASSWORD: changeme
-            POSTGRES_DB: tododb
+            POSTGRES_DB: trellodb
 
     adminer:
         image: adminer
