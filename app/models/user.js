@@ -6,7 +6,7 @@ module.exports = {
   getUsers() {
     return db.query('SELECT * FROM users ORDER BY id')
   },
-  createUser({ firstname, lastname }) {
+  createUser({ firstname, lastname, email, password, role }) {
     return db.query(
     `INSERT INTO users(firstname, lastname, email, password, role)
     VALUES (
@@ -26,7 +26,7 @@ module.exports = {
   deleteUser(id) {
     return db.query(`DELETE FROM users WHERE id=${id}`)
   },
-  addCard({userId, cardId}) {
+  addCard({ userId, cardId }) {
     return db.query(`
     INSERT INTO users_cards_lists SET 
     user_id=${userId}, 
@@ -39,6 +39,13 @@ module.exports = {
     SET list_id=${listId}
     WHERE user_id=${userId} 
     AND card_id=${cardId}`)
+  },
+  getByEmail(email) {
+    return db
+    .query(`SELECT * FROM users WHERE email='${email}'`)
+    .then(result => {
+      console.log(result)
+      return result.rows && result.rows.length > 0 ? result.rows[0] : false;
+    });
   }
-
 }
