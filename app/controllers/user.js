@@ -7,9 +7,9 @@ module.exports = express.Router()
       .then(result => res.json(result))
       .catch(err => res.json(err))
   })
-  .post('/', (req, res) => {
-    const { lastname, firstname } = req.body;
-    model.createUser({ firstname, lastname, email, password })
+  .post('/register', (req, res) => {
+    const { lastname, firstname, email, password, role } = req.body;
+    model.createUser({ firstname, lastname, email, password, role: 'user' })
       .then(result => res.send(result))
       .catch(err => console.log(err))
   })
