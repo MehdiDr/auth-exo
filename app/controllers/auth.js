@@ -3,7 +3,7 @@ const model = require("../models/user");
 
 const router = express.Router();
 
-router.post("/", (req, res) => {
+router.post("/login", (req, res) => {
   const { lastname, firstname, email, password } = req.body;
   model
     .createUser({ firstname, lastname, email, password, user: "user" })
@@ -11,12 +11,11 @@ router.post("/", (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.post("/login", (req, res) => {
+router.post("/login/test", (req, res) => {
   const { email, password } = req.body;
-  model
-    .createUser({ email, password })
-    .then(result => res.send(result))
-    .catch(err => console.log(err));
+  user.getByEmail(email)
+  .then(data => console.log(data))
+  .catch(err => console.log(err))
 });
 
-modules.export = router;
+module.exports = router;
