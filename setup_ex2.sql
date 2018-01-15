@@ -47,14 +47,14 @@ CREATE TABLE users
 INSERT INTO users
   (firstname, lastname)
 VALUES
-  ('David', 'Ostermann', 'do@gmail.com', password),
-  ('Faustino', 'Kialungila', 'fk@gmail.com', password),
-  ('Paljor', 'Tsang', 'pt@gmail.com', password),
-  ('Gaelle', 'Meric', 'gm@gmail.com', password),
-  ('Joffrey', 'Gitau', 'jg@gmail.com', password),
-  ('Mehdi', 'Druon', 'md@gmail.com', password),
-  ('Martin', 'Eon', 'me@gmail.com', password),
-  ('Julien', 'Grach', 'jg@gmail.com', password);
+  ('David', 'Ostermann', 'do@gmail.com', password, admin),
+  ('Faustino', 'Kialungila', 'fk@gmail.com', password, user),
+  ('Paljor', 'Tsang', 'pt@gmail.com', password, user),
+  ('Gaelle', 'Meric', 'gm@gmail.com', password, user),
+  ('Joffrey', 'Gitau', 'jg@gmail.com', password, user),
+  ('Mehdi', 'Druon', 'md@gmail.com', password, user),
+  ('Martin', 'Eon', 'me@gmail.com', password, user),
+  ('Julien', 'Grach', 'jg@gmail.com', password, user);
 
 CREATE TABLE users_cards_lists
 (
