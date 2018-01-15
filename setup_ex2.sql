@@ -38,7 +38,10 @@ CREATE TABLE users
 (
   id SERIAL PRIMARY KEY,
   lastname varchar(255),
-  firstname varchar(255)
+  firstname varchar(255),
+  email varchar(255),
+  password varchar(255),
+  role varchar(255),
 );
 
 INSERT INTO users
