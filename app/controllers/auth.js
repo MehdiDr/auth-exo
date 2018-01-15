@@ -14,7 +14,10 @@ router.post("/login", (req, res) => {
 router.post("/login/test", (req, res) => {
   const { email, password } = req.body;
   user.getByEmail(email)
-  .then(data => console.log(data))
+  .then(data => {
+    const authorized = data ? data.password === password : false;
+    return res.json(authorized ? data : false)
+  })
   .catch(err => console.log(err))
 });
 
