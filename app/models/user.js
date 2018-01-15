@@ -7,9 +7,15 @@ module.exports = {
     return db.query('SELECT * FROM users ORDER BY id')
   },
   createUser({ firstname, lastname }) {
-    return db.query(`
-    INSERT INTO users(firstname, lastname)
-    VALUES ('${firstname}', '${lastname}')`)
+    return db.query(
+    `INSERT INTO users(firstname, lastname, email, password, role)
+    VALUES (
+      '${firstname}', 
+      '${lastname}', 
+      '${email}', 
+      '${password}', 
+      '${role}')`
+    )
   },
   updateUser({ id, firstname, lastname }) {
     return db.query(`

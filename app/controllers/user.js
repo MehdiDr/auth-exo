@@ -9,7 +9,7 @@ module.exports = express.Router()
   })
   .post('/', (req, res) => {
     const { lastname, firstname } = req.body;
-    model.createUser({ firstname, lastname })
+    model.createUser({ firstname, lastname, email, password })
       .then(result => res.send(result))
       .catch(err => console.log(err))
   })
