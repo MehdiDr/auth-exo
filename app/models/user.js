@@ -47,5 +47,13 @@ module.exports = {
       console.log(result)
       return result.rows && result.rows.length > 0 ? result.rows[0] : false;
     });
+  },
+  notExist(email) {
+    return db.query(`SELECT * FROM users WHERE email='${email}'`)
+    .then(result => {
+      console.log(result)
+      return result.rows && result.rows.length > 0 ?
+      Promise.reject({error: 'user already exists'}) : true;
+    });
   }
-}
+};
