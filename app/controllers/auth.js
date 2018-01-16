@@ -4,7 +4,7 @@ const { encode } = require('./pwd');
 
 const router = express.Router();
 
-router.post("/login", (req, res) => {
+router.post("/register", (req, res) => {
   const { lastname, firstname, email, password } = req.body;
   userInfo.notExist(email)
   .then(result => encode(password))
@@ -15,7 +15,7 @@ router.post("/login", (req, res) => {
    .catch(err => console.log(err));
 });
 
-router.post("/login/test", (req, res) => {
+router.post("/login", (req, res) => {
   const { email, password } = req.body;
   user.getByEmail(email)
   .then(data => {
