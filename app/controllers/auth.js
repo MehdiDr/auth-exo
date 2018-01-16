@@ -17,11 +17,17 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
+  
   user.getByEmail(email)
   .then(data => {
-   // const authorized = data ? data.password === password : false;
-   return compare(password, user.password).then( authorized => {
-    return res.json(authorized ? data : false)
+    return compare(password, user.password)
+  .then( authorized => {
+    const SECRET = 'coucou'
+    const { id, firstname, lastname, email, role } = user;
+    
+    if(authorized) 
+      const token = jwt.sign({ id, email, role}, SECRET);
+      return res.json({ token, user: { id, firstname, lastname }})
    })
   })
   .catch(err => console.log(err))
