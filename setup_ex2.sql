@@ -41,20 +41,20 @@ CREATE TABLE users
   firstname varchar(255),
   email varchar(255),
   password varchar(255),
-  role varchar(255),
+  role varchar(255)
 );
 
 INSERT INTO users
-  (firstname, lastname)
+  (firstname, lastname, email, password, role)
 VALUES
-  ('David', 'Ostermann', 'do@gmail.com', password, admin),
-  ('Faustino', 'Kialungila', 'fk@gmail.com', password, user),
-  ('Paljor', 'Tsang', 'pt@gmail.com', password, user),
-  ('Gaelle', 'Meric', 'gm@gmail.com', password, user),
-  ('Joffrey', 'Gitau', 'jg@gmail.com', password, user),
-  ('Mehdi', 'Druon', 'md@gmail.com', password, user),
-  ('Martin', 'Eon', 'me@gmail.com', password, user),
-  ('Julien', 'Grach', 'jg@gmail.com', password, user);
+  ('David', 'Ostermann', 'do@do.do', '$2a$05$J2n7MkeGEMpcIVXK6g7V8e/IoGPReeyDVYC5AkU07YKqItSZ2gCL.', 'admin'),
+  ('Faustino', 'Kialungila', 'fk@do.do', '$2a$05$J2n7MkeGEMpcIVXK6g7V8e/IoGPReeyDVYC5AkU07YKqItSZ2gCL.', 'user'),
+  ('Paljor', 'Tsang', 'pt@do.do', '$2a$05$J2n7MkeGEMpcIVXK6g7V8e/IoGPReeyDVYC5AkU07YKqItSZ2gCL.', 'user'),
+  ('Gaelle', 'Meric', 'gm@do.do', '$2a$05$J2n7MkeGEMpcIVXK6g7V8e/IoGPReeyDVYC5AkU07YKqItSZ2gCL.', 'user'),
+  ('Joffrey', 'Gitau', 'jg@do.do', '$2a$05$J2n7MkeGEMpcIVXK6g7V8e/IoGPReeyDVYC5AkU07YKqItSZ2gCL.', 'user'),
+  ('Mehdi', 'Druon', 'md@do.do', '$2a$05$J2n7MkeGEMpcIVXK6g7V8e/IoGPReeyDVYC5AkU07YKqItSZ2gCL.', 'user'),
+  ('Martin', 'Eon', 'me@do.do', '$2a$05$J2n7MkeGEMpcIVXK6g7V8e/IoGPReeyDVYC5AkU07YKqItSZ2gCL.', 'user'),
+  ('Julien', 'Grach', 'jgr@do.do', '$2a$05$J2n7MkeGEMpcIVXK6g7V8e/IoGPReeyDVYC5AkU07YKqItSZ2gCL.', 'user');
 
 CREATE TABLE users_cards_lists
 (
