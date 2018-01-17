@@ -25,9 +25,10 @@ router.post("/login", (req, res) => {
     const SECRET = 'coucou'
     const { id, firstname, lastname, email, role } = user;
     
-    if(authorized) 
+    if(authorized) {
       const token = jwt.sign({ id, email, role}, SECRET);
       return res.json({ token, user: { id, firstname, lastname }})
+    }
    })
   })
   .catch(err => console.log(err))

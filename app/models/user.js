@@ -48,6 +48,14 @@ module.exports = {
       return result.rows && result.rows.length > 0 ? result.rows[0] : false;
     });
   },
+  getById(id) {
+    return db
+    .query(`SELECT * FROM users WHERE id='${id}'`)
+    .then(result => {
+      console.log(result)
+      return result.rows && result.rows.length > 0 ? result.rows[0] : false;
+    });
+  },
   notExist(email) {
     return db.query(`SELECT * FROM users WHERE email='${email}'`)
     .then(result => {
