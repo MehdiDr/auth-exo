@@ -1,6 +1,6 @@
 const express = require("express");
-const model = require("../models/user");
-const { encode } = require('./pwd');
+const user = require("../models/user");
+const { encode, compare } = require('./pwd');
 
 const router = express.Router();
 

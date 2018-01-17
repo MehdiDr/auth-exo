@@ -44,22 +44,19 @@ module.exports = {
     return db
     .query(`SELECT * FROM users WHERE email='${email}'`)
     .then(result => {
-      console.log(result)
       return result.rows && result.rows.length > 0 ? result.rows[0] : false;
     });
   },
   getById(id) {
     return db
-    .query(`SELECT * FROM users WHERE id='${id}'`)
+    .query(`SELECT * FROM users WHERE id=${id} LIMIT 1`)
     .then(result => {
-      console.log(result)
       return result.rows && result.rows.length > 0 ? result.rows[0] : false;
     });
   },
   notExist(email) {
     return db.query(`SELECT * FROM users WHERE email='${email}'`)
     .then(result => {
-      console.log(result)
       return result.rows && result.rows.length > 0 ?
       Promise.reject({error: 'user already exists'}) : true;
     });
