@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 app.use('/lists', require('./controllers/list'))
 app.use('/cards', require('./controllers/card'))
 app.use('/users', require('./controllers/user'))
-app.use('/login', require('./controllers/auth'))
+app.use('/auth', require('./controllers/auth'))
 
 app.all('/*', (req, res) => {
   res.status(404).send('je suis la 404')
