@@ -20,7 +20,7 @@ exports.encode = (pwd) => {
 }
 
 exports.compare = (pwdClear, pwdHash) => {
-    if(!pwdClear || !pwdHash) 
+    if(!pwdClear || pwdHash) 
         Promise.reject(new Error('Fuck you'))
     return new Promise( (resolve, reject) => {
         bcrypt.compare(pwdClear, pwdHash, (err, result) => {

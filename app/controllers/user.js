@@ -1,6 +1,6 @@
 const express = require('express')
 const model = require('../models/user')
-const { checkTokenMiddleware, compare } = require('./jwt');
+const { checkTokenMiddleware } = require('./jwt');
 
 module.exports = express.Router()
   .get('/', (req, res) => {
